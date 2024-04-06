@@ -1,0 +1,62 @@
+Libraries/plugin
+-selenium
+-pytest: unitTest framework
+-pytest-html: pytest html report
+-pytest-xdist: Run tests parallel
+-openpyxl: Ms EXcel Support
+-Allure-pytest:to generate allure report
+
+
+
+For common values made ini file in configurations
+Read common values using configparser
+
+Make file confitest in testcases
+--setup driver to run on dsired browser
+
+
+
+Run test on desired browser
+pytest -v -s package/testcase.py --browser chrome
+
+Run testcase parallel install pytest-xdist
+-pytest -v -s -n=2 pakage/testcase.py --browser chrome
+
+
+Generate html report
+--add hooks in confest.py
+pytest -s -v -n=2 --html=Reports/report.html testCases/test_login.py --browser chrome
+
+
+Data driven testcase
+-add util.py in utlity file inwhich addd method for excel
+-iterate value using for loop in testcase file
+
+Add new testcase addcustomer
+-create page in whcih define locator and action functions
+-create test in which make object of page class and call the action methods
+-to generate random email
+   def random_generator(size=8,chars=string.ascii_lowercase+string.digits):
+        return "".join(random.choice(chars) for x in range(size))
+
+
+add new testcase search customer
+    -create page object
+    -create testcase
+
+Grouping
+-add markers above tests--pytest.mark.sanity,,pytest.mark.regression
+-create new pytest.ini file in testcase
+-run command--pytest -s -v -m "sanity"---only sanity
+            --pytest -s -v -m "sanity and regression"----testcase marked both sanity and regression
+            --pytest -s -v -m "sanity or regression"----any of the one marked
+-pytest -s -v -m "sanity" --html=./Reports/sanity.html testCases/ --browser chrome
+
+
+
+Create Run.bat file with command inside it
+-copy project path
+-use REM to comment bat file
+-create bat file in project location
+-give commands in file
+-double click on bat file it will open the cmd prompt and run testcases
